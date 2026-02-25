@@ -4,6 +4,8 @@ iSenhas is a privacy-focused password manager designed with security, transparen
 
 This repository contains the **public client implementation** of the iSenhas browser extension.
 
+---
+
 ## 🔐 Security
 
 Security and transparency are core principles of iSenhas.
@@ -26,17 +28,6 @@ This repository contains the public client-side code of the browser extensions, 
 - Defense-in-depth design
 
 We welcome responsible security research and community feedback.
-
-## 🔐 Security First
-
-iSenhas is built around a security-centric architecture:
-
-- Client-side encryption
-- Optional Zero-Knowledge mode
-- Local cryptographic operations
-- No plaintext secrets transmitted to the server in Zero-Knowledge mode
-
-All sensitive encryption processes happen locally on the user’s device.
 
 ---
 
