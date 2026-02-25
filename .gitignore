@@ -1,0 +1,67 @@
+# ======================
+# macOS
+# ======================
+.DS_Store
+**/.DS_Store
+.AppleDouble
+.LSOverride
+
+# ======================
+# Logs
+# ======================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ======================
+# Node (se usar build futuramente)
+# ======================
+node_modules/
+dist/
+build/
+
+# ======================
+# Environment / Secrets
+# ======================
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.crt
+secrets.json
+config.local.json
+
+# ======================
+# IDEs
+# ======================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ======================
+# OS files
+# ======================
+Thumbs.db
+desktop.ini
+
+# ======================
+# Extension packaging
+# ======================
+*.zip
+*.crx
+*.xpi
+
+# ======================
+# Temporary files
+# ======================
+tmp/
+temp/
+.cache/
+
+# ======================
+# Coverage / Tests
+# ======================
+coverage/
