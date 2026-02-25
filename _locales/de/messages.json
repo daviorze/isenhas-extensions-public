@@ -1,0 +1,243 @@
+{
+  "recovery_title": {
+    "message": "Extreme Privatsphäre aktiviert"
+  },
+  "recovery_key": {
+    "message": "Wiederherstellungsschlüssel"
+  },
+  "recovery_desc1": {
+    "message": "1. Geben Sie den Wiederherstellungsschlüssel ein, um die Einträge zu entschlüsseln."
+  },
+  "recovery_nomeedit": {
+    "message": "Bsp.: EWBW9D-APV01V-1LE2OF-COHNHR-0JMKSO-C7"
+  },
+  "recovery_loadinglabel": {
+    "message": "Wiederherstellungsschlüssel wird überprüft..."
+  },
+  "recovery_login_error": {
+    "message": "Falscher Wiederherstellungsschlüssel. Laden Sie die Seite neu und versuchen Sie es erneut."
+  },
+  "feature_not_available_extreme": {
+    "message": "Diese Funktion wird derzeit für Benutzer mit aktivierter Extreme Privatsphäre entwickelt."
+  },
+  "wrong_recovery_key": {
+    "message": "Falscher Wiederherstellungsschlüssel"
+  },
+  "remove_shared_password_error": {
+    "message": "Sie haben keine Berechtigung, ein oder mehrere Elemente zu entfernen. Fehler"
+  },
+  "update_shared_password": {
+    "message": "Es ist nicht erlaubt, ein Element in einen gemeinsamen Tresor zu übertragen oder daraus zu entfernen."
+  },
+  "username_title": {
+    "message": "Benutzername (optional)"
+  },
+  "ex_note": {
+    "message": "Bsp.: Mein geheimes Bankkonto"
+  },
+  "description_title": {
+    "message": "Notiz (optional)"
+  },
+  "appTitle": {
+    "message": "iSenhas"
+  },
+  "appDesc": {
+    "message": "Sicherer Passwortmanager",
+    "description": "Die Beschreibung der Anwendung."
+  },
+  "favorite_password": {
+    "message": "Favorisiertes Passwort"
+  },
+  "capital_letters": {
+    "message": "Großbuchstaben (A–Z)"
+  },
+  "small_letters": {
+    "message": "Kleinbuchstaben (a–z)"
+  },
+  "hide_button": {
+    "message": "Ausblenden ↑"
+  },
+  "numbers": {
+    "message": "Zahlen (1–9)"
+  },
+  "special_char": {
+    "message": "Sonderzeichen"
+  },
+  "length": {
+    "message": "Länge"
+  },
+  "signIn": {
+    "message": "ANMELDEN"
+  },
+  "authenticatingUser": {
+    "message": "Benutzer wird gesucht\nund eine sichere Umgebung vorbereitet..."
+  },
+  "keepConnected": {
+    "message": "Angemeldet bleiben (7 Tage)"
+  },
+  "loginDesc2": {
+    "message": "2. Klicken Sie auf <b>ANMELDEN</b>, um auf iSenhas WEB zuzugreifen."
+  },
+  "loginDesc1": {
+    "message": "1. Öffnen Sie die <b>iSenhas</b>-App, tippen Sie auf<img style=\"height:30px;width: 30px;margin-left: 5px;margin-right: 5px;margin-bottom: 5px;\" alt=\"Qries\" src=\"/images/iconsmart/readbutton.png\" data-toggle=\"modal\" data-target=\"#exampleModal\" data-whatever=\"@fat\"/>und authentifizieren Sie sich mit dem <b>QR-Code</b> oben (verfügbar für Premium-Benutzer).</h3>"
+  },
+  "search_notes": {
+    "message": "Notizen werden gesucht"
+  },
+  "search_notes_error": {
+    "message": "Fehler beim Suchen von Notizen. Aktualisieren Sie die Seite und versuchen Sie es erneut. Code"
+  },
+  "add_note": {
+    "message": "Notiz wird erstellt"
+  },
+  "add_note_error": {
+    "message": "Fehler beim Erstellen der Notiz. Aktualisieren Sie die Seite und versuchen Sie es erneut. Code"
+  },
+  "no_selection": {
+    "message": "Keine Notiz ausgewählt."
+  },
+  "remove_note": {
+    "message": "Notizen werden entfernt"
+  },
+  "remove_note_error": {
+    "message": "Fehler beim Entfernen der Notizen. Aktualisieren Sie die Seite und versuchen Sie es erneut. Code"
+  },
+  "update_note": {
+    "message": "Notiz wird aktualisiert"
+  },
+  "update_note_error": {
+    "message": "Fehler beim Aktualisieren der Notiz. Aktualisieren Sie die Seite und versuchen Sie es erneut. Code"
+  },
+  "search_passwords": {
+    "message": "Passwörter werden gesucht"
+  },
+  "search_passwords_error": {
+    "message": "Fehler beim Suchen der Passwörter. Aktualisieren Sie die Seite und versuchen Sie es erneut. Code"
+  },
+  "add_password": {
+    "message": "Passwort wird erstellt"
+  },
+  "add_password_error": {
+    "message": "Fehler beim Erstellen des Passworts. Aktualisieren Sie die Seite und versuchen Sie es erneut. Code"
+  },
+  "no_password_selected": {
+    "message": "Kein Passwort ausgewählt"
+  },
+  "remove_password": {
+    "message": "Passwörter werden entfernt"
+  },
+  "remove_password_error": {
+    "message": "Fehler beim Entfernen der Passwörter. Aktualisieren Sie die Seite und versuchen Sie es erneut. Code"
+  },
+  "update_password": {
+    "message": "Passwort wird aktualisiert"
+  },
+  "update_password_error": {
+    "message": "Fehler beim Aktualisieren des Passworts. Aktualisieren Sie die Seite und versuchen Sie es erneut. Code"
+  },
+  "code_notfound": {
+    "message": "Code nicht gefunden. Aktualisieren Sie die Seite und versuchen Sie es erneut."
+  },
+  "login_error": {
+    "message": "Fehler bei der Authentifizierung. Aktualisieren Sie die Seite und versuchen Sie es erneut. Code"
+  },
+  "weak": {
+    "message": "Schwach"
+  },
+  "very_weak": {
+    "message": "Sehr schwach"
+  },
+  "regular": {
+    "message": "Angemessen"
+  },
+  "strong": {
+    "message": "Stark"
+  },
+  "very_strong": {
+    "message": "Sehr stark"
+  },
+  "repeated": {
+    "message": "Wiederholt"
+  },
+  "shared_by": {
+    "message": "Freigegeben von"
+  },
+  "searching_passwords": {
+    "message": "Passwörter werden gesucht"
+  },
+  "name": {
+    "message": "Name"
+  },
+  "username": {
+    "message": "Benutzername"
+  },
+  "password": {
+    "message": "Passwort"
+  },
+  "search_vaults": {
+    "message": "Tresore werden gesucht"
+  },
+  "personal": {
+    "message": "Persönlich"
+  },
+  "vault": {
+    "message": "Tresor"
+  },
+  "show": {
+    "message": "Anzeigen"
+  },
+  "copy": {
+    "message": "Kopieren"
+  },
+  "search_password": {
+    "message": "Passwort suchen..."
+  },
+  "isenhas_title": {
+    "message": "iSenhas WEB"
+  },
+  "edit": {
+    "message": "Bearbeiten"
+  },
+  "isenhas": {
+    "message": "iSenhas"
+  },
+  "add_button": {
+    "message": "HINZUFÜGEN"
+  },
+  "remove_button": {
+    "message": "ENTFERNEN"
+  },
+  "new_password": {
+    "message": "Neues Passwort"
+  },
+  "ex_name": {
+    "message": "Bsp.: Mein Passwort"
+  },
+  "ex_password": {
+    "message": "Bsp.: fea8hjaejJ(U"
+  },
+  "ex_username": {
+    "message": "Bsp.: username@email.com"
+  },
+  "cancel_button": {
+    "message": "ABBRECHEN"
+  },
+  "remove_passwords": {
+    "message": "Passwörter entfernen"
+  },
+  "remove_passwords_desc": {
+    "message": "Möchten Sie die ausgewählten Passwörter wirklich entfernen?"
+  },
+  "edit_password": {
+    "message": "Passwort bearbeiten"
+  },
+  "save_button": {
+    "message": "SPEICHERN"
+  },
+  "warning": {
+    "message": "Warnung"
+  },
+  "warning_desc": {
+    "message": "Sie haben keine Berechtigungen zum Verwalten gemeinsamer Passwörter."
+  }
+}

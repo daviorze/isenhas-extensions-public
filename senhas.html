@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title id="page">iSenhas WEB</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link href="favicon.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="css/senhas.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/sidebar.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/switch.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/slider.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/bootstrap-select/css/bootstrap-select.css">
+  <link rel="stylesheet" href="vendor/fontawesome/css/fontawesome-all.css">
+  <link href="vendor/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/bootstrap/css/4.5.2/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/4.5.2/bootstrap.css">
+</head>
+<body style="width: 785px;height: 600px; background: #090909;">
+  <div class="limiter">
+    <div class="container-login100" style="background: #090909;">
+      <div id="limiter" class="content" style="display: block;margin-left: 0px;">
+        <div id=resumo2 class="wrap-login100" style="padding-bottom: 20px;">
+          <div style="display: flex;">
+            <h5 class="titlecard" style="padding-left: 10px;color: white;" id="title">iSenhas</h5>
+            <div style="display: flex; margin-left: auto;margin-right: 0px;">
+              <button id="buttonreload" class="button6" target="_top"></button>
+              <button id="buttonadd" class="button5" target="_top">ADICIONAR</button>
+              <button id="buttonremove" class="button7" target="_top">EXCLUIR</button>
+              <button id="buttonlogout" class="button3" target="_top">LOGOUT</button>
+            </div>
+          </div>
+          <div style="display: flex;margin-left: 0px;margin-right: auto;">
+            <img style="position:relative;height:30px;margin-top:24px;margin-right:10px;" alt="Qries" src="../images/search.png"/>
+              <input type="text" id="search" placeholder="Buscar senha..." title="Type in a name" style="right: 50%;">
+              <img id="buttonclose" style="position:absolute;left: 93%;height: 25px;margin-top: 28px;" alt="Qries" src="../images/close.png"/>
+          </div>
+          <table id="tabela" class="table-element">
+            <thead>
+              <tr class="header">
+                <th id="nametitle" style="width:30%;border-radius: 10px 0 0 0;">Nome</th>
+                <th id="observationtitle" style="width:30%;">Usuário</th>
+                <th id="passwordtitle" style="max-width:10px;border-radius: 0 10px 0 10px;">Senha</th>
+                <th id="showtitle" style="width:10%;border-radius: 0 10px 0 10px;">Mostrar</th>
+                <th id="copytitle" style="width:10%;border-radius: 0 10px 0 10px;">Copiar</th>
+                <th id="edittitle" style="width:10%;border-radius: 0 10px 0 10px;">Editar</th>
+                <th id="recordNametitle" style="width:10%;border-radius: 0 10px 0 10px;display: none;">recordName</th>
+                <th id="recordChangeTagtitle" style="width:10%;border-radius: 0 10px 0 10px;display: none;">
+                  recordChangeTag</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="loading" style="position: absolute; left: 50%;top: 50%;">
+    <div style="position: relative; left: -50%;">
+      <div id="spinner" class="spinner-border text-primary"
+        style="width: 50px;height: 50px;margin-right: auto;margin-left: auto;display: block;"></div>
+      <h3 id="loadinglabel"
+        style="max-width: 600px;text-align: center;margin-top: 5px;margin-left: auto;margin-right: auto;display: block;color: white;margin-top: 20px;font-size: 14px;">
+        Buscando senhas...</h3>
+    </div>
+  </div>
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="background: #262628;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addModalLabel" style="color: #fff;">Adicionar senha</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label" style="color: #fff;" id="nomeaddlabel">Nome</label>
+              <input type="text" class="form-control" id="nomeadd" placeholder="Ex.: Minha senha" required="required"
+                pattern="[A-Za-z0-9]{1,20}" required style="color: #fff; background: #262628;">
+            </div>
+            <div class="form-group">
+              <div style="display: flex;">
+                <label for="recipient-name" class="col-form-label" style="color: #fff;" id="senhaaddlabel">Senha</label>
+                <label for="recipient-name" class="col-form-label"
+                  style="color: #fff;margin-left: auto;margin-right: 54px;" id="strong">-</label>
+              </div>
+              <div style="display: flex;">
+                <input oninput="updateInput(value)" type="text" class="form-control" id="senhaadd"
+                  placeholder="Ex.: 8hNAIOIADJ@*@" required="required" pattern="[A-Za-z0-9]{1,20}" required
+                  style="color: #fff; background: #262628;">
+                <img style="height:38px;width: 38px;margin-left: 10px;" alt="Qries" src="images/dice.png"
+                  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat" id="gerarsenha" />
+              </div>
+              <div style="margin-top: 10px;" id="advancedDice">
+                <div style="display: flex;">
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;" id="uplabeladd">Maiúsculas
+                    (A-Z)</label>
+                  <label class="switch" style="color: #fff;margin-left: auto;margin-right: 48px;margin-top: 8px;">
+                    <input id="maiusculas" type="checkbox" checked>
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div style="display: flex;">
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;" id="downlabeladd">Minúsculas
+                    (a-z)</label>
+                  <label class="switch" style="color: #fff;margin-left: auto;margin-right: 48px;margin-top: 8px;">
+                    <input id="minusculas" type="checkbox" checked>
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div style="display: flex;">
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;" id="numberslabeladd">Números
+                    (0-9)</label>
+                  <label class="switch" style="color: #fff;margin-left: auto;margin-right: 48px;margin-top: 8px;">
+                    <input id="numeros" type="checkbox" checked>
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div style="display: flex;">
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;" id="characlabeladd">Caracteres
+                    especiais</label>
+                  <label class="switch" style="color: #fff;margin-left: auto;margin-right: 48px;margin-top: 8px;">
+                    <input id="caracteres" type="checkbox" checked>
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div style="display: flex;margin-right: 48px">
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;"
+                    id="lengthlabeladd">Comprimento</label>
+                  <label style="color: #fff;margin-left: auto;margin-top: 7px;">
+                    <input type="range" min="1" max="30" value="14" class="slider1" id="myRange">
+                  </label>
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;margin-left: 10px;"
+                    id="lengthPass">14</label>
+                </div>
+                <button type="button" class="btn btn-primary" id="hideaddlabel" style="background: #3A9DFC; border-color: #3A9DFC;">Esconder ↑</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label" style="color: #fff;"
+                id="usuarioaddlabel">Usuário</label>
+              <input type="text" class="form-control" id="usuarioadd" placeholder="Ex.: usuario@email.com"
+                style="color: #fff; background: #262628;">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label" style="color: #fff;" id="descriptionaddlabel">Anotação</label>
+              <textarea rows="3" type="text" class="form-control" id="descriptionadd" placeholder="Ex.: Minha nota" style="color: #fff; background: #262628;"></textarea>
+            </div>
+            <div class="form-group" style="margin-bottom: 0px;" id="mailLabel">
+              <label for="recipient-name" class="col-form-label" style="color: #fff;" id="vaultaddlabel">Vaul</label>
+            </div>
+            <div class="form-group">
+              <select class="selectpicker" id="vaultaddoptions" name="vaultaddoptions" placeholder="Ex.: USER" style="color: #fff; background: #262628;width: 100%;" data-width="100%" required>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="canceladd">CANCELAR</button>
+          <button type="button" class="btn btn-primary" style="background: #3A9DFC; border-color: #3A9DFC;"
+            id="addadd">ADICIONAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="excluirModal" tabindex="-1" role="dialog" aria-labelledby="excluirModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="background: #262628;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="excluirModalLabel" style="color: #fff;">Excluir senhas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="color: #fff;" id="removedesc">
+          Você realmente gostaria de excluir as senhas selecionadas?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="removecancel">CANCELAR</button>
+          <button type="button" data-dismiss="modal" class="btn btn-primary"
+            style="background: #F4364C; border-color: #F4364C;" id="removeremove">EXCLUIR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="background: #262628;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel" style="color: #fff;">Editar senha</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label" style="color: #fff;" id="nomeeditlabel">Nome</label>
+              <input type="text" class="form-control" id="nomeedit" placeholder="Ex.: Minha senha" required="required"
+                pattern="[A-Za-z0-9]{1,20}" required style="color: #fff; background: #262628;">
+            </div>
+            <div class="form-group">
+              <div style="display: flex;">
+                <label for="recipient-name" class="col-form-label" style="color: #fff;"
+                  id="senhaeditlabel">Senha</label>
+                <label for="recipient-name" class="col-form-label"
+                  style="color: #fff;margin-left: auto;margin-right: 54px;" id="strongedit">-</label>
+              </div>
+              <div style="display: flex;">
+                <input oninput="updateInput(value)" type="text" class="form-control" id="senhaedit"
+                  placeholder="Ex.: 8hNAIOIADJ@*@" required="required" pattern="[A-Za-z0-9]{1,20}" required
+                  style="color: #fff; background: #262628;">
+                <img style="height:38px;width: 38px;margin-left: 10px;" alt="Qries" src="images/dice.png"
+                  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat" id="gerarsenhaedit" />
+              </div>
+              <div style="margin-top: 10px;" id="advancedDiceEdit">
+                <div style="display: flex;">
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;" id="uplabeledit">Maiúsculas
+                    (A-Z)</label>
+                  <label class="switch" style="color: #fff;margin-left: auto;margin-right: 48px;margin-top: 8px;">
+                    <input id="maiusculasEdit" type="checkbox" checked>
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div style="display: flex;">
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;" id="downlabeledit">Minúsculas
+                    (a-z)</label>
+                  <label class="switch" style="color: #fff;margin-left: auto;margin-right: 48px;margin-top: 8px;">
+                    <input id="minusculasEdit" type="checkbox" checked>
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div style="display: flex;">
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;" id="numberslabeledit">Números
+                    (0-9)</label>
+                  <label class="switch" style="color: #fff;margin-left: auto;margin-right: 48px;margin-top: 8px;">
+                    <input id="numerosEdit" type="checkbox" checked>
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div style="display: flex;">
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;" id="characlabeledit">Caracteres
+                    especiais</label>
+                  <label class="switch" style="color: #fff;margin-left: auto;margin-right: 48px;margin-top: 8px;">
+                    <input id="caracteresEdit" type="checkbox" checked>
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div style="display: flex;margin-right: 48px">
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;"
+                    id="lengthlabeledit">Comprimento</label>
+                  <label style="color: #fff;margin-left: auto;margin-top: 7px;">
+                    <input type="range" min="1" max="30" value="14" class="slider1" id="myRangeEdit">
+                  </label>
+                  <label for="recipient-name" class="col-form-label" style="color: #fff;margin-left: 10px;"
+                    id="lengthPassEdit">14</label>
+                </div>
+                <button type="button" class="btn btn-primary" id="hideeditlabel" style="background: #3A9DFC; border-color: #3A9DFC;">Esconder ↑</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label" style="color: #fff;"
+                id="usuarioeditlabel">Usuário</label>
+              <input type="text" class="form-control" id="usuarioedit" placeholder="Ex.: usuario@email.com"
+                style="color: #fff; background: #262628;">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label" style="color: #fff;" id="descriptioneditlabel">Anotação</label>
+              <textarea rows="3" type="text" class="form-control" id="descriptionedit" placeholder="Ex.: Minha nota" style="color: #fff; background: #262628;"></textarea>
+            </div>
+            <div class="form-group" style="margin-bottom: 0px;" id="mailLabel">
+              <label for="recipient-name" class="col-form-label" style="color: #fff;" id="vaulteditlabel">Vaul</label>
+            </div>
+            <div class="form-group">
+              <select class="selectpicker" id="vaulteditoptions" name="vaulteditoptions" placeholder="Ex.: USER" style="color: #fff; background: #262628;width: 100%;" data-width="100%" required>
+              </select>
+            </div>
+            <div class="form-group">
+              <div style="display: flex;" id="favswitch">
+                
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="canceledit">CANCELAR</button>
+          <button type="button" class="btn btn-primary" style="background: #3A9DFC; border-color: #3A9DFC;"
+            id="saveedit">SALVAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="shareErrorModal" tabindex="-1" role="dialog" aria-labelledby="ShareErrorModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="background: #262628;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="shareErrorModalLabel" style="color: #fff;">Atenção</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="color: #fff;" id="shareErrordesc">
+          Você não tem permissão para modificar senhas compartilhadas.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"
+            style="background: #3A9DFC; border-color: #3A9DFC;" id="shareErrorcancel">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="vendor/jquery/jquery-3.6.0.min.js"></script>
+  <script src="vendor/popper.min.js"></script>
+  <script src="js/qrcode.js" defer></script>
+  <script src="js/global.js"></script>
+  <script src="js/aes.js"></script>
+  <script type="text/javascript" src="js/senhas.js" type="text/javascript"></script>
+  <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="vendor/bootstrap-select/js/bootstrap-select.js"></script>
+</body>
+
+</html>

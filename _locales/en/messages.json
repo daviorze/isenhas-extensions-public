@@ -1,0 +1,247 @@
+{
+  "recovery_title": {
+    "message": "Extreme privacy enabled"
+  },
+  "recovery_key": {
+    "message": "Recovery key"
+  },
+  "recovery_desc1": {
+    "message": "1. Enter the Recovery key to decrypt the items."
+  },
+  "recovery_nomeedit": {
+    "message": "Ex.: EWBW9D-APV01V-1LE2OF-COHNHR-0JMKSO-C7"
+  },
+  "recovery_loadinglabel": {
+    "message": "Verifying Recovery key..."
+  },
+  "recovery_login_error": {
+    "message": "Wrong Recovery key. Reload the page and try again"
+  },
+  "feature_not_available_extreme": {
+    "message": "This feature is under development for user with Extreme privacy enabled."
+  },
+  "wrong_recovery_key": {
+    "message": "Wrong Recovery key"
+  },
+  "remove_shared_password_error":{
+    "message":"You don't have permission to remove one or more items. Error"
+  },
+  "update_shared_password":{
+    "message":"It is not allowed to transfer an item to or from a shared vault."
+  },
+  "username_title":{
+    "message":"Username (optional)"
+  },
+  "ex_note": {
+    "message":"Ex.: My secret bank account"
+  },
+  "description_title": {
+    "message":"Note (optional)"
+  },
+  "appTitle": {
+      "message": "iSenhas"
+  },
+  "appDesc": {
+      "message": "Safe password manager",
+      "description":"The description of the application."
+  },
+  "favorite_password": {
+    "message": "Favorite password"
+  },
+  "capital_letters": {
+    "message": "Capital letters (A-Z)"
+  },
+  "small_letters": {
+    "message": "Small letters (a-z)"
+  },
+  "hide_button": {
+    "message": "Hide ↑"
+  },
+  "numbers": {
+    "message": "Numbers (1-9)"
+  },
+  "special_char": {
+    "message": "Special characters"
+  },
+  "length": {
+    "message": "Length"
+  },
+  "signIn": {
+    "message": "SIGN IN"
+  },
+  "authenticatingUser": {
+    "message": "Searching user\nand preparing a safe environment..."
+  },
+  "keepConnected":{
+    "message":"Keep me connected (7 days)"
+  },
+  "loginDesc2":{
+    "message":"2. Click on <b>SIGN IN</b> to access iSenhas WEB."
+  },
+  "loginDesc1":{
+    "message":"1. Open <b>iSenhas</b> app, tap<img style=\"height:30px;width: 30px;margin-left: 5px;margin-right: 5px;margin-bottom: 5px;\" alt=\"Qries\" src=\"/images/iconsmart/readbutton.png\" data-toggle=\"modal\" data-target=\"#exampleModal\" data-whatever=\"@fat\"/>button and authenticate with the <b>QRCode</b> above (available for Premium users).</h3>"
+  },
+  "search_notes":{
+    "message":"Searching notes"
+  },
+  "search_notes_error":{
+    "message":"Error while searching notes. Update the page and try again. Code"
+  },
+  "add_note":{
+    "message":"Creating note"
+  },
+  "add_note_error":{
+    "message":"Error while creating note. Update the page and try again. Code"
+  },
+  "no_selection":{
+    "message":"No note selected."
+  },
+  "remove_note":{
+    "message":"Removing notes"
+  },
+  "remove_note_error":{
+    "message":"Error while removing notes. Update the page and try again. Code"
+  },
+  "update_note":{
+    "message":"Updating note"
+  },
+  "update_note_error":{
+    "message":"Error while updating note. Update the page and try again. Code"
+  },
+  "search_passwords":{
+    "message":"Searching passwords"
+  },
+  "search_passwords_error":{
+    "message":"Error while searching passwords. Update the page and try again. Code"
+  },
+  "add_password":{
+    "message":"Creating password"
+  },
+  "add_password_error":{
+    "message":"Error while creating password. Update the page and try again. Code"
+  },
+  "no_password_selected":{
+    "message":"No password selected"
+  },
+  "remove_password":{
+    "message":"Removing passwords"
+  },
+  "remove_password_error":{
+    "message":"Error while removing passwords. Update the page and try again. Code"
+  },
+  "update_password":{
+    "message":"Updating password"
+  },
+  "update_password_error":{
+    "message":"Error while updating password. Update the page and try again. Code"
+  },
+  "code_notfound":{
+    "message":"Code not found. Refresh the page and try again."
+  },
+  "login_error":{
+    "message":"Error while authenticating. Refresh the page and try again. Code"
+  },
+  "weak":{
+    "message":"Weak"
+  },
+  "very_weak":{
+    "message":"Very weak"
+  },
+  "regular":{
+    "message":"Regular"
+  },
+  "strong":{
+    "message":"Strong"
+  },
+  "very_strong":{
+    "message":"Very strong"
+  },
+  "repeated":{
+    "message":"Repeated"
+  },
+  "shared_by":{
+    "message":"Shared by"
+  },
+  "searching_passwords":{
+    "message":"Searching passwords"
+  },
+  "name":{
+    "message":"Name"
+  },
+  "username":{
+    "message":"Username"
+  },
+  "password":{
+    "message":"Password"
+  },
+  "search_vaults":{
+    "message":"Searching vaults"
+  },
+  "personal":{
+    "message":"Personal"
+  },
+  "vault":{
+    "message":"Vault"
+  },
+  "show":{
+    "message":"Show"
+  },
+  "copy":{
+    "message":"Copy"
+  },
+  "search_password":{
+    "message":"Search password..."
+  },
+  "isenhas_title":{
+    "message":"iSenhas WEB"
+  },
+  "edit":{
+    "message":"Edit"
+  },
+  "isenhas":{
+    "message":"iSenhas"
+  },
+  "add_button":{
+    "message":"ADD"
+  },
+  "remove_button":{
+    "message":"REMOVE"
+  },
+  "new_password":{
+    "message":"New password"
+  },
+  "ex_name":{
+    "message":"Ex.: My password"
+  },
+  "ex_password":{
+    "message":"Ex.: fea8hjaejJ(U"
+  },
+  "ex_username":{
+    "message":"Ex.: username@email.com"
+  },
+  "cancel_button":{
+    "message":"CANCEL"
+  },
+  "remove_passwords":{
+    "message":"Remove passwords"
+  },
+  "remove_passwords_desc":{
+    "message":"Do you really want to remove the selected passwords?"
+  },
+  "edit_password":{
+    "message":"Edit password"
+  },
+  "save_button":{
+    "message":"SAVE"
+  },
+  "warning":{
+    "message": "Warning"
+  },
+  "warning_desc":{
+    "message": "You don't have permissions to manage shared passwords."
+  }
+
+
+
+  
+}

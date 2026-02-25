@@ -1,0 +1,243 @@
+{
+  "recovery_title": {
+  "message": "Privacidade Extrema ativada"
+  },
+  "recovery_key": {
+    "message": "Chave de Recuperação"
+  },
+  "recovery_desc1": {
+    "message": "1. Insira a Chave de Recuperação para descriptografar os itens."
+  },
+  "recovery_nomeedit": {
+    "message": "Ex.: EWBW9D-APV01V-1LE2OF-COHNHR-0JMKSO-C7"
+  },
+  "recovery_loadinglabel": {
+    "message": "Verificando Chave de Recuperação..."
+  },
+  "recovery_login_error": {
+    "message": "Chave de Recuperação incorreta. Recarregue a página e tente novamente"
+  },
+  "feature_not_available_extreme": {
+    "message": "Este recurso está em desenvolvimento para usuários com Privacidade Extrema ativada."
+  },
+  "wrong_recovery_key": {
+    "message": "Chave de Recuperação incorreta"
+  },
+  "update_shared_password":{
+    "message":"Não é permitido transferir um item de ou para um cofre compartilhado."
+  },
+  "remove_shared_password_error":{
+    "message":"Você não tem permissão para remover um ou mais itens. Erro"
+  },
+  "username_title":{
+    "message":"Usuário (opcional)"
+  },
+  "ex_note": {
+    "message":"Ex.: Minha conta de banco secreta"
+  },
+  "description_title": {
+    "message":"Anotação (opcional)"
+  },
+  "appTitle": {
+      "message": "iSenhas"
+  },
+  "search_vaults":{
+    "message":"Buscaondo cofres..."
+  },
+  "personal":{
+    "message":"Pessoal"
+  },
+  "vault":{
+    "message":"Cofre"
+  },
+  "appDesc": {
+      "message": "Gerenciador seguro de senhas",
+      "description":"The description of the application."
+  },
+  "favorite_password": {
+    "message": "Senha favorita"
+  },
+  "signIn": {
+    "message": "ENTRAR"
+  },
+  "capital_letters": {
+    "message": "Maiúsculas (A-Z)"
+  },
+  "small_letters": {
+    "message": "Minúsculas (a-z)"
+  },
+  "numbers": {
+    "message": "Números (1-9)"
+  },
+  "special_char": {
+    "message": "Caracteres especiais"
+  },
+  "length": {
+    "message": "Comprimento"
+  },
+  "hide_button": {
+    "message": "Esconder ↑"
+  },
+  "authenticatingUser": {
+    "message": "Buscando usuário\ne preparando um ambiente seguro..."
+  },
+  "keepConnected":{
+    "message":"Manter-me conectado (7 dias)"
+  },
+  "loginDesc2":{
+    "message":"2. Clique no botão <b>ENTRAR</b> para acessar o iSenhas WEB.</h3>"
+  },
+  "loginDesc1":{
+    "message":"1. Abra o aplicativo <b>iSenhas</b>, toque no botão<img style=\"height:30px;width: 30px;margin-left: 5px;margin-right: 5px;margin-bottom: 5px;\" alt=\"Qries\" src=\"/images/iconsmart/readbutton.png\" data-toggle=\"modal\" data-target=\"#exampleModal\" data-whatever=\"@fat\"/>e leia o <b>QRCode</b> acima (disponível para usuários Premium).</h3>"
+  },
+  "shared_by":{
+    "message":"Compartilhado por"
+  },
+  "search_notes":{
+    "message":"Buscando notas"
+  },
+  "search_notes_error":{
+    "message":"Erro ao buscar notas. Atualize a página e tente novamente. Código"
+  },
+  "add_note":{
+    "message":"Adicionando nota"
+  },
+  "add_note_error":{
+    "message":"Erro ao adicionar nota. Atualize a página e tente novamente. Código"
+  },
+  "no_selection":{
+    "message":"Nenhuma nota selecionada."
+  },
+  "remove_note":{
+    "message":"Excluindo notas"
+  },
+  "remove_note_error":{
+    "message":"Erro ao excluir notas. Atualize a página e tente novamente. Código"
+  },
+  "update_note":{
+    "message":"Atualizando nota"
+  },
+  "update_note_error":{
+    "message":"Erro ao atualizar nota. Atualize a página e tente novamente. Código"
+  },
+  "search_passwords":{
+    "message":"Buscando senhas"
+  },
+  "search_passwords_error":{
+    "message":"Erro ao buscar senhas. Atualize a página e tente novamente. Código"
+  },
+  "add_password":{
+    "message":"Adicionando senha"
+  },
+  "add_password_error":{
+    "message":"Erro ao adicionar senha. Atualize a página e tente novamente. Código"
+  },
+  "no_password_selected":{
+    "message":"Nenhuma senha selecionada."
+  },
+  "remove_password":{
+    "message":"Excluindo senhas"
+  },
+  "remove_password_error":{
+    "message":"Erro ao excluir senhas. Atualize a página e tente novamente. Código"
+  },
+  "update_password":{
+    "message":"Atualizando senha"
+  },
+  "update_password_error":{
+    "message":"Erro ao atualizar senha. Atualize a página e tente novamente. Código"
+  },
+  "code_notfound":{
+    "message":"Código não encontrado. Atualize a página e tente novamente."
+  },
+  "login_error":{
+    "message":"Erro ao autenticar usuário. Atualize a página e tente novamente. Código"
+  },
+  "weak":{
+    "message":"Fraca"
+  },
+  "very_weak":{
+    "message":"Muito fraca"
+  },
+  "regular":{
+    "message":"Razoável"
+  },
+  "strong":{
+    "message":"Forte"
+  },
+  "very_strong":{
+    "message":"Muito forte"
+  },
+  "repeated":{
+    "message":"Repetida"
+  },
+  "searching_passwords":{
+    "message":"Buscando senhas"
+  },
+  "name":{
+    "message":"Nome"
+  },
+  "username":{
+    "message":"Usuário"
+  },
+  "password":{
+    "message":"Senha"
+  },
+  "show":{
+    "message":"Mostrar"
+  },
+  "copy":{
+    "message":"Copiar"
+  },
+  "search_password":{
+    "message":"Buscar senha"
+  },
+  "isenhas_title":{
+    "message":"iSenhas WEB"
+  },
+  "edit":{
+    "message":"Editar"
+  },
+  "isenhas":{
+    "message":"iSenhas"
+  },
+  "add_button":{
+    "message":"ADICIONAR"
+  },
+  "remove_button":{
+    "message":"EXCLUIR"
+  },
+  "new_password":{
+    "message":"Nova senha"
+  },
+  "ex_name":{
+    "message":"Ex.: Minha senha"
+  },
+  "ex_password":{
+    "message":"Ex.: fea8hjaejJ(U"
+  },
+  "ex_username":{
+    "message":"Ex.: usuario@email.com"
+  },
+  "cancel_button":{
+    "message":"CANCELAR"
+  },
+  "remove_passwords":{
+    "message":"Remover senhas"
+  },
+  "remove_passwords_desc":{
+    "message":"Você realmente gostaria de excluir as senhas selecionadas?"
+  },
+  "edit_password":{
+    "message":"Editar senha"
+  },
+  "save_button":{
+    "message":"SALVAR"
+  },
+  "warning":{
+    "message": "Atenção"
+  },
+  "warning_desc":{
+    "message": "Você não tem permissão para modificar senhas compartilhadas."
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title id="title_name">iSenhas WEB</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" href="vendor/bootstrap/css/4.5.2/bootstrap.min.css">
+</head>
+<body style="width: 785px;height: 300px">
+	
+	<div class="limiter">
+		<div class="container-login100" style="background: #090909;">
+			<div id="loginform" class="wrap-login100 p-l-25 p-r-25 p-t-25 p-b-25">
+				<div  class="login100-form">
+					<div class="qrdiv hide" id="qrdiv" style="top: 10px;">
+						<div class="qrcode" id="qrcode" style="margin-top: 10px;"></div>
+					</div>
+					<h3 id="desc1"
+						style="max-width: 600px;font-size: 16px; text-align: left;margin-top: 20px;margin-left: auto;margin-right: auto;display: block;color: white;">
+						1. Abra o aplicativo <b>iSenhas</b> (Configurações -> iSenhas WEB) e realize a autenticação
+						através da <b>leitura do QRCode</b> acima.</h3>
+					<h3 id="desc2"
+						style="max-width: 600px;font-size: 16px; text-align: left;margin-top: 5px;margin-left: auto;margin-right: auto;display: block;color: white;">
+						2. Clique no botão <b>ENTRAR</b> para acessar o iSenhas WEB.</h3>
+					<div class="text-right p-t-8 p-b-5">
+					</div>
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button id="btn_login" class="login100-form-btn">
+								ENTRAR
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="loading" style="position: absolute; left: 50%;top: 50%;">
+        <div style="position: relative; left: -50%;">
+            <div id="spinner" class="spinner-border text-primary"
+                style="width: 50px;height: 50px;margin-right: auto;margin-left: auto;display: block;"></div>
+            <h3 id="loadinglabel"
+                style="max-width: 600px;text-align: center;margin-top: 5px;margin-left: auto;margin-right: auto;display: block;color: white;margin-top: 20px;font-size: 14px;">
+                Autenticando usuário...</h3>
+        </div>
+    </div>
+	<div id="dropDownSelect1"></div>
+	<script src="vendor/jquery/jquery-3.6.0.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/global.js"></script>
+	<script src="js/qrcode.js"></script>
+	<script src="js/aes.js"></script>
+</body>
+</html>

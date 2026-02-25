@@ -1,0 +1,243 @@
+{
+  "recovery_title": {
+  "message": "Privacidad Extrema activada"
+  },
+  "recovery_key": {
+    "message": "Clave de Recuperación"
+  },
+  "recovery_desc1": {
+    "message": "1. Ingrese la Clave de Recuperación para descifrar los elementos."
+  },
+  "recovery_nomeedit": {
+    "message": "Ej.: EWBW9D-APV01V-1LE2OF-COHNHR-0JMKSO-C7"
+  },
+  "recovery_loadinglabel": {
+    "message": "Verificando Clave de Recuperación..."
+  },
+  "recovery_login_error": {
+    "message": "Clave de Recuperación incorrecta. Recargue la página e intente nuevamente"
+  },
+  "feature_not_available_extreme": {
+    "message": "Esta función está en desarrollo para usuarios con Privacidad Extrema activada."
+  },
+  "wrong_recovery_key": {
+    "message": "Clave de Recuperación incorrecta"
+  },
+  "update_shared_password":{
+    "message":"No es posible transferir un artículo hacia o desde una bóveda compartida."
+  },
+  "remove_shared_password_error":{
+    "message":"No tienes permiso para eliminar uno o más elementos. Error"
+  },
+  "username_title":{
+    "message":"Nombre de usuario (opcional)"
+  },
+  "ex_note": {
+    "message":"Ej.: Mi contraseña secreta"
+  },
+  "description_title": {
+    "message":"Anotación (opcional)"
+  },
+  "appTitle": {
+      "message": "iSenhas"
+  },
+  "appDesc": {
+    "message": "Administrador de contraseñas seguras",
+    "description":"La descripción de la aplicación."
+  },
+  "favorite_password": {
+    "message": "Contraseña favorita"
+  },
+  "signIn": {
+    "message": "INICIAR"
+  },
+  "hide_button": {
+    "message": "Ocultar ↑"
+  },
+  "capital_letters": {
+    "message": "Letras mayúsculas (A-Z)"
+  },
+  "small_letters": {
+    "message": "Letras minúsculas (a-z)"
+  },
+  "numbers": {
+    "message": "Números (1-9)"
+  },
+  "special_char": {
+    "message": "Caracteres especiales"
+  },
+  "length": {
+    "message": "Longitud"
+  },
+  "authenticatingUser": {
+    "message": "Autenticación\ny preparación de un entorno seguro..."
+  },
+  "keepConnected":{
+    "message":"Mantenerme conectado (7 días)"
+  },
+  "loginDesc2":{
+    "message":"2. Haga clic en <b>INICIAR</b> para acceder a iSenhas WEB."
+  },
+  "loginDesc1":{
+    "message":"1. Abra la aplicación <b>iSenhas</b>toca el botón<img style=\"height:30px;width: 30px;margin-left: 5px;margin-right: 5px;margin-bottom: 5px;\" alt=\"Qries\" src=\"/images/iconsmart/readbutton.png\" data-toggle=\"modal\" data-target=\"#exampleModal\" data-whatever=\"@fat\"/>y autentíquese con el <b>QRCode</b> anterior (disponible para usuarios Premium).</h3>"
+  },
+  "search_notes":{
+    "message":"Buscando notas"
+  },
+  "search_notes_error":{
+    "message":"Error al buscar notas. Actualiza la página e inténtalo de nuevo. Código"
+  },
+  "add_note":{
+    "message":"Creando nota"
+  },
+  "add_note_error":{
+    "message":"Error al crear la nota. Actualiza la página e inténtalo de nuevo. Código"
+  },
+  "no_selection":{
+    "message":"No se seleccionó ninguna nota."
+  },
+  "remove_note":{
+    "message":"Eliminando notas"
+  },
+  "remove_note_error":{
+    "message":"Error al eliminar notas. Actualiza la página e inténtalo de nuevo. Código"
+  },
+  "update_note":{
+    "message":"Actualizando nota"
+  },
+  "update_note_error":{
+    "message":"Error al actualizar la nota. Actualiza la página e inténtalo de nuevo. Código"
+  },
+  "search_passwords":{
+    "message":"Buscando contraseñas"
+  },
+  "search_passwords_error":{
+    "message":"Error al buscar contraseñas. Actualiza la página e inténtalo de nuevo. Código"
+  },
+  "add_password":{
+    "message":"Creando contraseña"
+  },
+  "add_password_error":{
+    "message":"Error al crear la contraseña. Actualiza la página e inténtalo de nuevo. Código"
+  },
+  "no_password_selected":{
+    "message":"Ninguna contraseña seleccionada"
+  },
+  "remove_password":{
+    "message":"Eliminando contraseñas"
+  },
+  "remove_password_error":{
+    "message":"Error al eliminar las contraseñas. Actualiza la página e inténtalo de nuevo. Código"
+  },
+  "update_password":{
+    "message":"Actualizando contraseña"
+  },
+  "update_password_error":{
+    "message":"Error al actualizar la contraseña. Actualiza la página e inténtalo de nuevo. Código"
+  },
+  "code_notfound":{
+    "message":"Código no encontrado. Actualiza la página e inténtalo de nuevo."
+  },
+  "login_error":{
+    "message":"Error al autenticar. Actualiza la página e inténtalo de nuevo. Código"
+  },
+  "weak":{
+    "message":"Débil"
+  },
+  "very_weak":{
+    "message":"Muy débil"
+  },
+  "regular":{
+    "message":"Regular"
+  },
+  "strong":{
+    "message":"Fuerte"
+  },
+  "very_strong":{
+    "message":"Muy fuerte"
+  },
+  "repeated":{
+    "message":"Repetido"
+  },
+  "shared_by":{
+    "message":"Compartido por"
+  },
+  "searching_passwords":{
+    "message":"Buscando contraseñas..."
+  },
+  "name":{
+    "message":"Nombre"
+  },
+  "search_vaults":{
+    "message":"Buscando bóvedas..."
+  },
+  "personal":{
+    "message":"Personal"
+  },
+  "vault":{
+    "message":"Bóveda"
+  },
+  "username":{
+    "message":"Usuario"
+  },
+  "password":{
+    "message":"Contraseña"
+  },
+  "show":{
+    "message":"Mostrar"
+  },
+  "copy":{
+    "message":"Copiar"
+  },
+  "search_password":{
+    "message":"Buscar contraseña..."
+  },
+  "isenhas_title":{
+    "message":"iSenhas WEB"
+  },
+  "edit":{
+    "message":"Editar"
+  },
+  "isenhas":{
+    "message":"iSenhas"
+  },
+  "add_button":{
+    "message":"AÑADIR"
+  },
+  "remove_button":{
+    "message":"ELIMINAR"
+  },
+  "new_password":{
+    "message":"Nueva contraseña"
+  },
+  "ex_name":{
+    "message":"Ej.: Mi contraseña"
+  },
+  "ex_password":{
+    "message":"Ex.: fea8hjaejJ(U"
+  },
+  "ex_username":{
+    "message":"Ej.: nombredeusuario@email.com"
+  },
+  "cancel_button":{
+    "message":"CANCELAR"
+  },
+  "remove_passwords":{
+    "message":"Eliminar contraseñas"
+  },
+  "remove_passwords_desc":{
+    "message":"¿Realmente desea eliminar las contraseñas seleccionadas?"
+  },
+  "edit_password":{
+    "message":"Editar contraseña"
+  },
+  "save_button":{
+    "message":"GUARDAR"
+  },
+  "warning":{
+    "message": "Advertencia"
+  },
+  "warning_desc":{
+    "message": "No tienes permisos para administrar contraseñas compartidas."
+  }
+}
