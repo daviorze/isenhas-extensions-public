@@ -125,4 +125,4 @@ For questions, suggestions, or responsible disclosure, please open an issue or c
 
 ---
 
-**iSenhas — Security without compromise.**
+**iSenhas — Security that can be verified.**
