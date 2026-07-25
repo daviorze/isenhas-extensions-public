@@ -39,55 +39,42 @@ function authenticate(count){
     loading.style.display = "block";
     loginform.style.display = "none";
     var xhr = new XMLHttpRequest();
-    var url = host+"/iSenhasLoginV4";
-    if(development) url = host+"/iSenhasLoginV4DEV";
+    var url = host+"/iSenhasLoginV5";
+    if(development) url = host+"/iSenhasLoginV5DEV";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
     xhr.setRequestHeader('authorization', token);
+    xhr.withCredentials = true; 
     xhr.onreadystatechange = async function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var objResponse = JSON.parse(xhr.responseText);
-            const d = new Date();
-            var time = 168;
-            var mytime = d.setTime(d.getTime() + (time*60*60*1000));
-            chrome.cookies.set({
-                url: "https://isenhas.com.br",
-                name: "tokenis",
-                value: objResponse.token,
-                secure: true,
-                httpOnly: true,
-                sameSite: "strict",
-                expirationDate: mytime
-              }, function (cookie) {
-                if(objResponse.extremeprivacy != null){
-                    chrome.cookies.set({
-                        url: "https://isenhas.com.br",
-                        name: "recovery",
-                        value: "wait",
-                        secure: true,
-                        httpOnly: true,
-                        sameSite: "strict",
-                        expirationDate: mytime
-                    },async function (cookie3){
-                        await importAndStoreKey(objResponse.sha)
-                        window.location = 'recoverykey.html';
-                    });
-                } else {
-                    chrome.cookies.set({
-                        url: "https://isenhas.com.br",
-                        name: "recovery",
-                        value: "none",
-                        secure: true,
-                        httpOnly: true,
-                        sameSite: "strict",
-                        expirationDate: mytime
-                    },async function (cookie3){
-                        await importAndStoreKey(objResponse.sha)
-                        window.location = 'senhas.html';
-                    });
-                }
-            });
+            if(objResponse.extremeprivacy != null){
+                chrome.cookies.set({
+                    url: "https://isenhas.com.br",
+                    name: "recovery",
+                    value: "wait",
+                    secure: true,
+                    httpOnly: true,
+                    sameSite: "strict",
+                    expirationDate: 86400000
+                },async function (cookie3){
+                    await importAndStoreKey(objResponse.sha)
+                    window.location = 'recoverykey.html';
+                });
+            } else {
+                chrome.cookies.set({
+                    url: "https://isenhas.com.br",
+                    name: "recovery",
+                    value: "none",
+                    secure: true,
+                    httpOnly: true,
+                    sameSite: "strict",
+                    expirationDate: 86400000
+                },async function (cookie3){
+                    await importAndStoreKey(objResponse.sha)
+                    window.location = 'senhas.html';
+                });
+            }
         } else if (xhr.readyState === 4 && xhr.status === 201) {
             count++
             if(count<21){
@@ -105,7 +92,10 @@ function authenticate(count){
             loadinglabel.innerHTML = chrome.i18n.getMessage("login_error")+": "+xhr.status;
         }
     };
-    xhr.send();
+    let body = {
+        checkbox: true
+    }
+    xhr.send(JSON.stringify(body));
 }
 function translate(){
     document.getElementById("desc1").innerHTML = chrome.i18n.getMessage("loginDesc1");

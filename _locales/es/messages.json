@@ -1,4 +1,7 @@
 {
+  "leaving": {
+    "message": "Logout"
+  },
   "recovery_title": {
   "message": "Privacidad Extrema activada"
   },

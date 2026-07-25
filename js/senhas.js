@@ -91,26 +91,8 @@ window.onload = function () {
   translate();
   loading.style.display = "block";
   limiter.style.display = "none";
-  getCookie();
+  getCookie3();
 };
-function getCookie() {
-  var getting = chrome.cookies.get({
-  url: "https://isenhas.com.br",
-  name: "tokenis"
-  });
-  getting.then(logCookie);
-}
-function logCookie(cookie) {
-  if (cookie) {
-      token = cookie.value;
-      getCookie3();
-  } else {
-      localStorage.removeItem("obj")
-      localStorage.removeItem("obj1")
-      localStorage.removeItem("obj2")
-      window.location = "login.html";
-  }
-}
 function getCookie3() {
   var getting = chrome.cookies.get({
   url: "https://isenhas.com.br",
@@ -250,12 +232,11 @@ async function getPasswords() {
   todasSenhas = [];
   loadinglabel.innerHTML = chrome.i18n.getMessage("search_passwords") + "...";
   var xhr = new XMLHttpRequest();
-  var url = host + "/iSenhasBuscarSenhasV4";
-  if (development) url = host + "/iSenhasBuscarSenhasV4DEV";
+  var url = host + "/iSenhasBuscarSenhasV5";
+  if (development) url = host + "/iSenhasBuscarSenhasV5DEV";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-  xhr.setRequestHeader('authorization', token);
+  xhr.withCredentials = true;
 
   xhr.onreadystatechange = async function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -375,12 +356,11 @@ function getVaults() {
   vaults = [];
   loadinglabel.innerHTML = chrome.i18n.getMessage("search_vaults") + "...";
   var xhr = new XMLHttpRequest();
-  var url = host + "/iSenhasBuscarCofresV4";
-  if (development) url = host + "/iSenhasBuscarCofresV4DEV";
+  var url = host + "/iSenhasBuscarCofresV5";
+  if (development) url = host + "/iSenhasBuscarCofresV5DEV";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-  xhr.setRequestHeader('authorization', token);
+  xhr.withCredentials = true;
 
   xhr.onreadystatechange = async function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -434,12 +414,11 @@ function getVaults() {
 function getShared() {
   loadinglabel.innerHTML = chrome.i18n.getMessage("search_passwords")+"...";
   var xhr = new XMLHttpRequest();
-  var url = host+"/iSenhasBuscarCofresCompartilhadoV4";
-  if(development) url = host+"/iSenhasBuscarCofresCompartilhadoV4DEV";
+  var url = host+"/iSenhasBuscarCofresCompartilhadoV5";
+  if(development) url = host+"/iSenhasBuscarCofresCompartilhadoV5DEV";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-  xhr.setRequestHeader('authorization', token);
+  xhr.withCredentials = true;
 
   xhr.onreadystatechange =  async function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -506,18 +485,31 @@ async function logout() {
   localStorage.removeItem("obj")
   localStorage.removeItem("obj2")
   chrome.storage.local.remove(["obj","obj2"])
-  chrome.cookies.remove({
-      url: "https://isenhas.com.br",
-      name: "tokenis"
-    }).then(() => {
-      return chrome.cookies.remove({
+
+    chrome.cookies.remove({
         url: "https://isenhas.com.br",
         name: "recovery"
-      });
-    }).then(() => {
-      window.location = "login.html";
+    }).then(async () => {
+      loading.style.display = "block";
+      limiter.style.display = "none";
+      loadinglabel.innerHTML = chrome.i18n.getMessage("leaving") + "...";
+      document.cookie = "permission=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "recovery=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      await deleteKey();
+      var xhr = new XMLHttpRequest();
+      var url = host + "/iSenhasLogoutV5";
+      if (development) url = host + "/iSenhasLogoutV5DEV";
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.withCredentials = true;
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 ) {
+          window.location = 'login.html';
+        } 
+      };
+      xhr.send();
     });
-  await deleteKey();
 }
 function buttonreload() {
   localStorage.removeItem("obj")
@@ -610,6 +602,186 @@ function removeAll(selectBox) {
       selectBox.remove(0);
   }
 }      
+function createPasswordRow(options) {
+    const {
+        index,
+        image,
+        named,
+        subtitle,
+        subtitleId,
+        subtitleDisplay = "block",
+        observation,
+        pass,
+        recordName,
+        recordChangeTag,
+        showStar = false,
+        displayStar = "none"
+    } = options;
+
+    const tr = $("<tr>", {
+        class: "rows",
+        id: index
+    });
+
+    // ---------- Nome ----------
+
+    const tdName = $("<td>", {
+        class: "info",
+        id: "name" + index
+    });
+
+    const flex = $("<div>").css("display", "flex");
+
+    if (showStar) {
+        flex.append(
+            $("<img>", {
+                src: "../images/iconsmart/star.png",
+                alt: "",
+                "data-toggle": "modal",
+                "data-target": "#exampleModal"
+            }).css({
+                display: displayStar,
+                position: "absolute",
+                zIndex: 1000,
+                height: "14px",
+                marginRight: "10px"
+            })
+        );
+    }
+
+    flex.append(
+        $("<img>", {
+            src: "../images/iconsmart/" + image + ".png",
+            alt: ""
+        }).css({
+            height: "24px",
+            marginRight: "10px"
+        })
+    );
+
+    const textContainer = $("<div>");
+
+    textContainer.append(
+        $("<div>").text(named),
+        $("<div>", {
+            id: subtitleId + index
+        }).css({
+            fontSize: "10px",
+            marginTop: "5px",
+            display: subtitleDisplay
+        }).text(subtitle)
+    );
+
+    flex.append(textContainer);
+    tdName.append(flex);
+
+    // ---------- Observação ----------
+
+    const tdObservation = $("<td>", {
+        class: "info",
+        id: "observation" + index
+    }).css({
+        maxWidth: "100px",
+        wordWrap: "break-word"
+    }).text(observation);
+
+    // ---------- Senha ----------
+
+    const tdPass = $("<td>", {
+        class: "info",
+        id: "pass" + index
+    });
+
+    tdPass.append(
+        $("<input>", {
+            class: "passwordRow",
+            type: "password",
+            readonly: true
+        }).val(pass),
+
+        $("<div>", {
+            id: "dash" + index
+        }).text("━━━━━━━━━━"),
+
+        $("<div>").css("display", "flex").append(
+            $("<div>", {
+                id: "code" + index
+            }).text("-"),
+
+            $("<div>", {
+                class: "circular-progress",
+                id: "circular-progress" + index
+            }).append(
+                $("<span>", {
+                    class: "progress-value",
+                    id: "progress-value" + index
+                }).text("50")
+            )
+        )
+    );
+
+    // ---------- Olho ----------
+
+    const tdEye = $("<td>", {
+        class: "info"
+    }).css({
+        textAlign: "left",
+        width: "50px"
+    }).append(
+        $("<i>", {
+            class: "fas fa-eye-slash",
+            id: "showHide" + index
+        })
+    );
+
+    // ---------- Copiar ----------
+
+    const tdCopy = $("<td>", {
+        class: "info"
+    }).append(
+        $("<i>", {
+            class: "far fa-copy",
+            id: "copy" + index
+        }),
+        $("<div>", {
+            id: "dashe" + index
+        }).text("━"),
+        $("<i>", {
+            class: "far fa-copy",
+            id: "copye" + index
+        })
+    );
+
+    // ---------- Editar ----------
+
+    const tdEdit = $("<td>", {
+        class: "info"
+    }).css("text-align", "left").append(
+        $("<i>", {
+            class: "fas fa-edit",
+            id: "edit" + index
+        })
+    );
+
+    tr.append(
+        tdName,
+        tdObservation,
+        tdPass,
+        tdEye,
+        tdCopy,
+        tdEdit,
+        $("<td>", {
+            class: "info",
+            id: "recordName"
+        }).hide().text(recordName),
+        $("<td>", {
+            class: "info",
+            id: "recordChangeTag"
+        }).hide().text(recordChangeTag)
+    );
+
+    $("#table-body").append(tr);
+}
 async function reloadTable() {
   $('#table-body').empty();
   var favorites = []
@@ -660,44 +832,20 @@ async function reloadTable() {
       display = "block"
     }
     if (!password.fields.admin && !password.fields.sharedDesc) {
-      $('#table-body').append(`
-                <tr class="rows" id='${i + 1}'>            
-                  <td class= "info" id="name${i + 1}">
-                    <div style="display: flex;">   
-                      <img style="display:${display_star};position:absolute;z-index: 1000;height:14px;margin-right:10px;" alt="Qries" src="../images/iconsmart/star.png" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat"/>
-                      <img style="height:24px;margin-right:10px;" alt="Qries" src="../images/iconsmart/${image}.png" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat" onClick= "copy(${i + 1})"/>
-                    <div>
-                    <div>${named}</div>
-                      <div id="passvault${i + 1}" style="font-size:10px;margin-top:5px;display:${display}">${vaultName}</div>
-                    </div>
-                  </div>
-                    </td>
-                  <td class= "info" id="observation${i + 1}" style="max-width:100px;word-wrap: break-word;">${observation}</td>
-                  <td class= "info" id="pass${i+1}" onclick="select(${i+1})">
-                      <input id="password" class="passwordRow" type="password" id="password"value="${pass}" readonly/>
-                      <div id="dash${i+1}" onclick="select(${i+1})">━━━━━━━━━━</div>
-                      <div  style="display:flex">
-                        <div id="code${i+1}" onclick="select(${i+1})">-</div>
-                        <div class="circular-progress" id="circular-progress${i+1}">
-                          <span class="progress-value" id="progress-value${i+1}">50</span>
-                        </div>
-                      </div>
-                    </td>     
-                  <td class= "info" style="text-align:left;width:50px">
-                      <i class="fas fa-eye-slash" id="showHide${i + 1}"></i>
-                  </td> 
-                  <td class= "info"> 
-                    <i class="far fa-copy" id= "copy${i+1}"></i>
-                    <div id="dashe${i+1}" onclick="select(${i+1})">━</div>
-                    <i id="copye${i+1}" class="far fa-copy"></i>
-                  </td>
-                  <td class= "info" style="text-align:left;">
-                  <i class="fas fa-edit" id="edit${i + 1}"></i>
-                  </td>
-                  <td class= "info" id="recordName" style="display: none;">${password.recordName}</td>
-                  <td class= "info" id="recordChangeTag" style="display: none;">${password.recordChangeTag}</td>
-                </tr>
-            `)
+      createPasswordRow({
+          index: i + 1,
+          image,
+          named,
+          subtitle: vaultName,
+          subtitleId: "passvault",
+          subtitleDisplay: display,
+          observation,
+          pass,
+          recordName: password.recordName,
+          recordChangeTag: password.recordChangeTag,
+          showStar: true,
+          displayStar: display_star
+      });
             if(password.fields.secret != null){
               let fields = password.fields
               var algorithm = fields.algorithm.value
@@ -737,43 +885,17 @@ async function reloadTable() {
         subtitle = chrome.i18n.getMessage("shared_by")+" "+password.fields.admin.value
       else
         subtitle = password.fields.sharedDesc.value
-      $('#table-body').append(`
-          <tr class="rows" id='${i + 1}'>            
-            <td class= "info" id="name${i + 1}">
-            <div style="display: flex;">   
-            <img style="height:24px;margin-right:10px;" alt="Qries" src="../images/iconsmart/${image}.png" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat" onClick= "copy(${i + 1})"/>
-            <div>
-            <div>${named}</div>
-              <div id="passdesc${i + 1}" style="font-size:10px;margin-top:5px;">${subtitle}</div>
-            </div>
-          </div>
-            </td>
-            <td class= "info" id="observation${i + 1}" style="max-width:100px;word-wrap: break-word;">${observation}</td>
-            <td class= "info" id="pass${i+1}" onclick="select(${i+1})">
-                <input id="password" class="passwordRow" type="password" id="password"value="${pass}" readonly/>
-                <div id="dash${i+1}" onclick="select(${i+1})">━━━━━━━━━━</div>
-                <div  style="display:flex">
-                  <div id="code${i+1}" onclick="select(${i+1})">-</div>
-                  <div class="circular-progress" id="circular-progress${i+1}">
-                    <span class="progress-value" id="progress-value${i+1}">50</span>
-                  </div>
-                </div>
-              </td>     
-            <td class= "info" style="text-align:left;width:50px">
-                <i class="fas fa-eye-slash" id="showHide${i + 1}"></i>
-            </td> 
-            <td class= "info" > 
-                      <i class="far fa-copy" id= "copy${i+1}"></i>
-                      <div id="dashe${i+1}" onclick="select(${i+1})">━</div>
-                      <i id="copye${i+1}" class="far fa-copy"></i>
-                    </td>
-            <td class= "info" style="text-align:left;">
-            <i class="fas fa-edit" id="edit${i + 1}"></i>
-            </td>
-            <td class= "info" id="recordName" style="display: none;">${password.recordName}</td>
-            <td class= "info" id="recordChangeTag" style="display: none;">${password.recordChangeTag}</td>
-          </tr>
-      `)
+      createPasswordRow({
+          index: i + 1,
+          image,
+          named,
+          subtitle,
+          subtitleId: "passdesc",
+          observation,
+          pass,
+          recordName: password.recordName,
+          recordChangeTag: password.recordChangeTag
+      });
       if(password.fields.secret != null){
         let fields = password.fields
         var algorithm = fields.algorithm.value
@@ -834,6 +956,65 @@ async function reloadTable() {
   }
   loading.style.display = "none";
   limiter.style.display = "block";
+  chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+    var identifier = tabs[0].url;
+    identifier = identifier.replaceAll("https", "")
+    identifier = identifier.replaceAll("http", "")
+    identifier = identifier.replaceAll("www.", "")
+    identifier = identifier.replaceAll("://", "")
+    identifier = identifier.replaceAll(".com", "")
+    identifier = identifier.replaceAll(".br", "")
+    identifier = identifier.replaceAll(".net", "")
+    identifier = identifier.replaceAll(".gov", "")
+    identifier = identifier.replaceAll(".ind", "")
+    identifier = identifier.replaceAll(".io", "")
+    identifier = identifier.replaceAll("accounts", "")
+    identifier = identifier.replaceAll("/members/", "")
+    identifier = identifier.replaceAll("online.", "")
+    identifier = identifier.replaceAll("login.", "")
+    identifier = identifier.replaceAll("/login", "")
+    identifier = identifier.replaceAll(".dev", "")
+    identifier = identifier.replaceAll(".develop", "")
+    identifier = identifier.replaceAll("auth.", "")
+    identifier = identifier.replaceAll(".app", "")
+    if (identifier.includes("/")){
+        let identifierA = identifier.split("/")
+        identifier = identifierA[0];
+        if(identifier.length == 0 && identifierA.length > 1){
+          identifier = identifierA[1];
+        }
+    }
+    if (identifier.includes("?")){
+        let identifierA = identifier.split("?")
+        identifier = identifierA[0];
+        if(identifier.length == 0 && identifierA.length > 1){
+          identifier = identifierA[1];
+        }
+    }
+    if(tabs[0].url.includes("acesso.gov.br")){
+      identifier = "gov"
+    }
+    var image = getListIconFromText(identifier).image;
+    if (image == "lock"){
+        image = getListIconFromText(tabs[0].url).image;
+    }
+    if (image == "lock") {
+        if (identifier.includes(".")) {
+            const array = identifier.split(".")
+            if (array.length > 0) {
+                identifier = array[0]
+                if(identifier.length == 0 && array.length > 1){
+                    identifier = array[1];
+                }
+            }
+        }
+        image = identifier
+    }
+    refreshOptions();
+    document.getElementById("search").value = image;
+    onLoad = true
+    searchPass();
+  });
 }
 function removeElement(id) {
   var elem = document.getElementById(id);
@@ -1025,6 +1206,9 @@ function copy(id) {
                 }
                 return ev;
             }
+        function delay(time) {
+              return new Promise(resolve => setTimeout(resolve, time));
+             }
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
         func: goahead,
@@ -1039,6 +1223,7 @@ function copy(id) {
 }
 
 function select(id) {
+  //console.log("oi" + id)
   var tr = table.getElementsByTagName("tr");
   var td = tr[id];
   if (td) {
@@ -1047,6 +1232,7 @@ function select(id) {
       var filterSelected = [];
       for (var ele in selectedRows) {
         var originalIndex = selectedRows[ele].originalIndex;
+        //console.log(originalIndex)
         if (originalIndex != id) {
           filterSelected.push(selectedRows[ele]);
         }
@@ -1099,12 +1285,11 @@ function buttonclose(){
 async function addSenha() {
   loadinglabel.innerHTML = chrome.i18n.getMessage("add_password") + "...";
   var xhr = new XMLHttpRequest();
-  var url = host + "/iSenhasAddSenhaV4";
-  if (development) url = host + "/iSenhasAddSenhaV4DEV";
+  var url = host + "/iSenhasAddSenhaV5";
+  if (development) url = host + "/iSenhasAddSenhaV5DEV";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-  xhr.setRequestHeader('authorization', token);
+  xhr.withCredentials = true;
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -1178,12 +1363,11 @@ function buttonremove() {
 function excluirSenhas() {
   loadinglabel.innerHTML = chrome.i18n.getMessage("remove_password") + ": " + enviado;
   var xhr = new XMLHttpRequest();
-  var url = host + "/iSenhasExcluirV4";
-  if (development) url = host + "/iSenhasExcluirV4DEV";
+  var url = host + "/iSenhasExcluirV5";
+  if (development) url = host + "/iSenhasExcluirV5DEV";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-  xhr.setRequestHeader('authorization', token);
+  xhr.withCredentials = true;
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -1331,12 +1515,11 @@ function buttoneditar() {
 async function editSenha() {
   loadinglabel.innerHTML = chrome.i18n.getMessage("update_password") + "...";
   var xhr = new XMLHttpRequest();
-  var url = host + "/iSenhasAtualizarV4";
-  if (development) url = host + "/iSenhasAtualizarV4DEV";
+  var url = host + "/iSenhasAtualizarV5";
+  if (development) url = host + "/iSenhasAtualizarV5DEV";
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-  xhr.setRequestHeader('authorization', token);
+  xhr.withCredentials = true;
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {

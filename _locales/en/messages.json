@@ -1,4 +1,7 @@
 {
+  "leaving": {
+    "message": "Leaving"
+  },
   "recovery_title": {
     "message": "Extreme privacy enabled"
   },
