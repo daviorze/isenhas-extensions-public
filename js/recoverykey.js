@@ -9,37 +9,18 @@ function login(){
     loginform.style.display = "none";
 }
 $("#recovery_btn_login").click(function(){
-    getCookie()
+    authenticate();
 });
-function getCookie() {
-  var getting = chrome.cookies.get({
-  url: "https://isenhas.com.br",
-  name: "tokenis"
-  });
-  getting.then(logCookie);
-}
-function logCookie(cookie) {
-  if (cookie) {
-      token = cookie.value;
-      authenticate();
-  } else {
-      localStorage.removeItem("obj")
-      localStorage.removeItem("obj1")
-      localStorage.removeItem("obj2")
-      window.location = "login.html";
-  }
-}
 function authenticate(){
     loading.style.display = "block";
     loginform.style.display = "none";
     
     var xhr = new XMLHttpRequest();
-    var url = host+"/iSenhasLoginRecoveryV4";
-    if(development) url = host+"/iSenhasLoginRecoveryV4DEV";
+    var url = host+"/iSenhasLoginRecoveryV5";
+    if(development) url = host+"/iSenhasLoginRecoveryV5DEV";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    xhr.setRequestHeader('authorization', token);
+    xhr.withCredentials = true;
     xhr.onreadystatechange = async function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
           let input = document.getElementById("recovery_nomeedit");
