@@ -1111,7 +1111,7 @@ function copy(id) {
         var elements = document.getElementsByTagName("input"); 
         for(var i in elements){        
           var element = elements[i];  
-          if(element.autocomplete != undefined && element.autocomplete.lenght != 0){ 
+          if(element.autocomplete != undefined && element.autocomplete.length != 0){ 
             if(element.autocomplete == "username"){ 
               element.click()
               element.focus();
